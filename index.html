@@ -36,7 +36,7 @@
     // Segunda página
 
     // Na página de destino, criamos um websocket para receber os dados da página de origem
-    var socket = new WebSocket('ws://leomarqueti.github.io/CONEXAO1/');
+    var socket = new WebSocket('wss://leomarqueti.github.io/CONEXAO1/');
 
     // Receber dados quando eles forem enviados pelo servidor
     socket.onmessage = function(event) {
