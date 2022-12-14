@@ -33,23 +33,12 @@
     </div>
 </body>
 <script>
-    // Segunda página
-
-    // Na página de destino, criamos um websocket para receber os dados da página de origem
-    var socket = new WebSocket('wss://leomarqueti.github.io/CONEXAO1/');
-
-    // Receber dados quando eles forem enviados pelo servidor
-    socket.onmessage = function(event) {
-        console.log(event.data);
-    };
-
-
-
-
-    // Exibo os dados do usuário na página
-    document.getElementById("nomeUsuario").innerHTML = dadosUsuario.nome;
-    document.getElementById("emailUsuario").innerHTML = dadosUsuario.email;
-
+    
+    // Na segunda página, crie um canal de broadcast com o mesmo nome e escute as mensagens
+    const broadcastChannel = new BroadcastChannel('canalleo');
+    broadcastChannel.addEventListener('message', (event) => {
+      console.log('Mensagem recebida:', event.data);
+    });
     
 
 </script>
