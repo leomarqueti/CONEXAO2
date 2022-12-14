@@ -52,6 +52,35 @@
 
     console.log('Mensagem recebida:', event.data);
     });
+    
+    adicionarCliente(dadosCliente)
+
+
+    // Array para armazenar os dados de cada cliente
+    let clientes = [];
+
+    // Função para adicionar um novo cliente ao array
+    function adicionarCliente(dadosCliente) {
+        clientes.push(dadosCliente);
+    }
+
+    // Função para mostrar todos os clientes na tela
+    function mostrarClientes() {
+        // Limpo o conteúdo da div onde os clientes serão mostrados
+        document.getElementById("conteudo").innerHTML = "";
+
+        // Para cada cliente no array, crio uma nova div com as informações do cliente
+        for (let i = 0; i < clientes.length; i++) {
+            let dadosCliente = clientes[i];
+
+            let novaDiv = document.createElement("div");
+            novaDiv.innerHTML = "<b>Nome:</b> " + dadosCliente.nome + "<br><b>Carro:</b> " + dadosCliente.carro;
+            document.getElementById("conteudo").appendChild(novaDiv);
+        }
+    }
+    adicionarCliente(dadosCliente)
+    mostrarClientes()
+
 
 </script>
 </html>
