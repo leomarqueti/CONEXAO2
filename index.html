@@ -39,6 +39,8 @@
     // Na segunda página, crie um canal de broadcast com o mesmo nome e escute as mensagens
     const broadcastChannel = new BroadcastChannel('canalleo');
     broadcastChannel.addEventListener('message', (event) => {
+    var dadosUsuario = event.data;
+    console.log(dadosUsuario.nome)
     console.log('Mensagem recebida:', event.data);
     });
 
