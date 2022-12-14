@@ -34,12 +34,13 @@
 </body>
 <script>
     
+
+
     // Na segunda página, crie um canal de broadcast com o mesmo nome e escute as mensagens
     const broadcastChannel = new BroadcastChannel('canalleo');
     broadcastChannel.addEventListener('message', (event) => {
-      console.log('Mensagem recebida:', event.data);
+    console.log('Mensagem recebida:', event.data);
     });
-    
 
 </script>
 </html>
