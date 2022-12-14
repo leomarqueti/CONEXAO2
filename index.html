@@ -44,17 +44,14 @@
     // Na segunda página, crie um canal de broadcast com o mesmo nome e escute as mensagens
     const broadcastChannel = new BroadcastChannel('canalleo');
     broadcastChannel.addEventListener('message', (event) => {
-    var dadosUsuario = event.data;
+    var dadosCliente = event.data;
     
-    nomeUsuario.innerHTML = "Nome: " +  dadosUsuario.nome;
-    carroUsuario.innerHTML = "Carro: " +  dadosUsuario.email;
+    nomeUsuario.innerHTML = "Nome: " +  dadosCliente.nome;
+    carroUsuario.innerHTML = "Carro: " +  dadosCliente.email;
 
 
     console.log('Mensagem recebida:', event.data);
     });
-    
-    adicionarCliente(dadosCliente)
-
 
     // Array para armazenar os dados de cada cliente
     let clientes = [];
