@@ -28,19 +28,24 @@
         <strong>Nome:</strong> <span id="nomeUsuario"></span>
         </div>
         <div class="dados-usuario">
-        <strong>Email:</strong> <span id="emailUsuario"></span>
+        <strong>Email:</strong> <span id="carroUsuario"></span>
         </div>
     </div>
 </body>
 <script>
     
-
+    let nomeUsuario = document.getElementById("nomeUsuario");
+    let carroUsuario = document.getElementById("carroUsuario");
 
     // Na segunda página, crie um canal de broadcast com o mesmo nome e escute as mensagens
     const broadcastChannel = new BroadcastChannel('canalleo');
     broadcastChannel.addEventListener('message', (event) => {
     var dadosUsuario = event.data;
-    console.log(dadosUsuario.nome)
+    
+    nomeUsuario.innerHTML = "Nome: " +  dadosUsuario.nome;
+    carroUsuario.innerHTML = "Carro: " +  dadosUsuario.email;
+
+
     console.log('Mensagem recebida:', event.data);
     });
 
