@@ -70,13 +70,18 @@
     function mostrarClientes() {
         // Limpo o conteúdo da div onde os clientes serão mostrados
 
+        let conteudo = document.getElementById("conteudo");
+        if (!conteudo) {
+            return;
+        }
+
         // Para cada cliente no array, crio uma nova div com as informações do cliente
         for (let i = 0; i < clientes.length; i++) {
             let dadosCliente = clientes[i];
 
             let novaDiv = document.createElement("div");
             novaDiv.innerHTML = "<b>Nome:</b> " + dadosCliente.nome + "<br><b>Carro:</b> " + dadosCliente.carro;
-            document.getElementById("conteudo").appendChild(novaDiv);
+            conteudo.appendChild(novaDiv);
         }
     }
 
