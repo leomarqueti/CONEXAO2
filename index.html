@@ -41,6 +41,17 @@
     let nomeUsuario = document.getElementById("nomeUsuario");
     let carroUsuario = document.getElementById("carroUsuario");
 
+    // Array para armazenar os dados de cada cliente
+    let clientes = [];
+
+    // Função para adicionar um novo cliente ao array
+    function adicionarCliente(dadosCliente) {
+        clientes.push(dadosCliente);
+
+        // Mostro todos os clientes na tela
+        mostrarClientes();
+    }
+
     // Na segunda página, crie um canal de broadcast com o mesmo nome e escute as mensagens
     const broadcastChannel = new BroadcastChannel('canalleo');
     broadcastChannel.addEventListener('message', (event) => {
@@ -49,15 +60,11 @@
         nomeUsuario.innerHTML = "Nome: " +  dadosCliente.nome;
         carroUsuario.innerHTML = "Carro: " +  dadosCliente.email;
 
-
         console.log('Mensagem recebida:', event.data);
-        // Array para armazenar os dados de cada cliente
-    let clientes = [];
 
-    // Função para adicionar um novo cliente ao array
-    function adicionarCliente(dadosCliente) {
-        clientes.push(dadosCliente);
-    }
+        // Adiciono o novo cliente ao array
+        adicionarCliente(dadosCliente);
+    });
 
     // Função para mostrar todos os clientes na tela
     function mostrarClientes() {
@@ -73,10 +80,6 @@
             document.getElementById("conteudo").appendChild(novaDiv);
         }
     }
-    adicionarCliente(dadosCliente)
-    mostrarClientes()
-        
-    });
 
 
 </script>
