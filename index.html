@@ -38,15 +38,20 @@
 </body>
 <script>
     
+    // segunda pagina
+
     let nomeUsuario = document.getElementById("nomeUsuario");
     let carroUsuario = document.getElementById("carroUsuario");
 
     // Array para armazenar os dados de cada cliente
-    let clientes = [];
+    let clientes = JSON.parse(localStorage.getItem('clientes')) || [];
 
     // Função para adicionar um novo cliente ao array
     function adicionarCliente(dadosCliente) {
         clientes.push(dadosCliente);
+
+        // Armazeno os dados dos clientes em localStorage
+        localStorage.setItem('clientes', JSON.stringify(clientes));
 
         // Mostro todos os clientes na tela
         mostrarClientes();
@@ -70,20 +75,16 @@
     function mostrarClientes() {
         // Limpo o conteúdo da div onde os clientes serão mostrados
 
-        let conteudo = document.getElementById("conteudo");
-        if (!conteudo) {
-            return;
-        }
-
         // Para cada cliente no array, crio uma nova div com as informações do cliente
         for (let i = 0; i < clientes.length; i++) {
             let dadosCliente = clientes[i];
 
             let novaDiv = document.createElement("div");
             novaDiv.innerHTML = "<b>Nome:</b> " + dadosCliente.nome + "<br><b>Carro:</b> " + dadosCliente.carro;
-            conteudo.appendChild(novaDiv);
+            document.getElementById("conteudo").appendChild(novaDiv);
         }
     }
+
 
 
 </script>
