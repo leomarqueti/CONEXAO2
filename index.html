@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+                table {
+        border-collapse: collapse;
+        }
+
+        th, td {
+        border: 1px solid black;
+        padding: 8px;
+        }
+
+        th {
+        background-color: lightgray;
+        }
+
+        form {
+        display: flex;
+        flex-direction: column;
+        }
+
+        label {
+        margin-bottom: 8px
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+        <!-- Página 2: Tabela de clientes e veículos -->
+    <table id="tabela-clientes">
+        <thead>
+        <tr>
+            <th>Nome do cliente</th>
+            <th>Veículo</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Linhas da tabela serão preenchidas dinamicamente com os dados dos clientes -->
+        </tbody>
+    </table> 
+</body>
+<script>
+
+    // Página 2: Tabela de clientes e veículos
+    const tabela = document.querySelector('#tabela-clientes tbody');
+
+    // Escuta por novos dados de clientes enviados via POST
+    window.addEventListener('message', (event) => {
+    if (event.data.type === 'novo-cliente') {
+        // Adiciona os dados do cliente à tabela
+        tabela.innerHTML += `
+        <tr>
+            <td>${event.data.nomeCliente}</td>
+            <td>${event.data.veiculo}</td>
+        </tr>
+        `;
+    }
+    });
+
+</script>
+</html>
